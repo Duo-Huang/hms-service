@@ -1,0 +1,15 @@
+﻿services:
+  hms-service:
+    image: hms-service
+    build:
+      context: .
+      dockerfile: Hms-Service/Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8888
+    ports:
+      - "8888:8888"
+  hms-user:
+    image: hms-user
+    build:
+      context: .
+      dockerfile: Hms-User/Dockerfile

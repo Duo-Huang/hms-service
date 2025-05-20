@@ -1,3 +1,5 @@
+using Hms_Common.Config;
+
 namespace Hms_Service;
 
 public class Program
@@ -8,6 +10,7 @@ public class Program
 
         // Add services to the container.
 
+        builder.Services.Configure<AppConfig>(builder.Configuration.GetSection(nameof(AppConfig)));
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -31,4 +34,4 @@ public class Program
 
         app.Run();
     }
-}   
+}

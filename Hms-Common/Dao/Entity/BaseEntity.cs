@@ -2,17 +2,7 @@ namespace Hms_Common.Dao.Entity;
 
 public class BaseEntity
 {
-    protected BaseEntity()
-    {
-    }
+    public required DateTime CreateAt { get; set; }
 
-    protected BaseEntity(DateTime createAt, DateTime updateAt)
-    {
-        CreateAt = createAt;
-        UpdateAt = updateAt;
-    }
-
-    public DateTime CreateAt { get; set; }
-
-    public DateTime UpdateAt { get; set; }
+    public required DateTime UpdateAt { get; set; }
 }

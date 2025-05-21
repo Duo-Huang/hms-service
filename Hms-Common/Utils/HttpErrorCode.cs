@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Http;
 
-namespace Hms_Common.Extensions;
+namespace Hms_Common.Utils;
 
-public static class HttpCodeErrorMessages
+public static class HttpErrorCode
 {
     private static readonly Dictionary<int, string> ErrorMessagesMap = new()
     {
@@ -19,7 +19,7 @@ public static class HttpCodeErrorMessages
         { StatusCodes.Status415UnsupportedMediaType, "不支持的媒体类型" },
     };
 
-    public static string GetMessage(int statusCode)
+    public static string GetMessageByHttpCode(int statusCode)
     {
         return ErrorMessagesMap.GetValueOrDefault(statusCode, "未知错误");
     }

@@ -2,15 +2,15 @@ using Hms_Common.Enums;
 
 namespace Hms_Common.Model;
 
-public class SystemRole
+public class SystemRole : BaseModel
 {
-    public int RoleId { get; set; }
+    public required int RoleId { get; set; }
 
-    public RoleTypeEnum RoleType { get; set; }
+    public required RoleTypeEnum RoleType { get; set; }
 
-    public string RoleName { get; set; }
+    public required string RoleName { get; set; }
 
     public string RoleDescription { get; set; }
 
-    public List<Permission> Permissions { get; set; }
+    public required List<Permission> Permissions { get; set; }
 }

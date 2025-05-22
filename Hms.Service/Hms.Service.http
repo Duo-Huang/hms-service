@@ -1,0 +1,6 @@
+@Hms.Service_HostAddress = http://localhost:5064
+
+GET {{Hms.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

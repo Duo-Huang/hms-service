@@ -4,7 +4,7 @@ using Hms.Common.Enums;
 
 namespace Hms.Common.Extensions;
 
-public static class ErrorCode
+public static class ErrorCodeExtensions
 {
     public static int GetCode(this ErrorCodeEnum errorCodeEnum)
     {

@@ -4,7 +4,7 @@ using Hms.Common.Enums;
 
 namespace Hms.Common.Extensions;
 
-public static class SystemRole
+public static class SystemRoleExtensions
 {
     public static RoleTypeEnum GetRoleType(this SystemRoleEnum systemRoleEnum) => GetRoleMeta(systemRoleEnum).RoleType;
 

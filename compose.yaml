@@ -1,6 +1,30 @@
 ﻿services:
-  hms.service:
-    image: hms.service
-    build:
-      context: .
-      dockerfile: Hms.Service/Dockerfile
+    hms.service:
+        image: hms.service
+        build:
+            context: .
+            dockerfile: Hms.Service/Dockerfile
+        environment:
+            - ASPNETCORE_HTTP_PORTS=8888
+        ports:
+            - "8888:8888"
+        depends_on:
+            - postgresql
+    postgresql:
+        image: postgres:17.5
+        user: postgres
+        #        restart: always
+        container_name: 'pgsql-hms-dev'
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: 12345
+            POSTGRES_DB: hms_dev  # keep same as setup-dev.sql
+            TZ: Asia/Shanghai
+        ports:
+            - "5432:5432"
+        volumes:
+            - "pgsql-hms-dev:/var/lib/postgresql/data"
+            - "./scripts/setup-dev.sql:/docker-entrypoint-initdb.d/setup-dev.sql"  # init script
+
+volumes:
+    pgsql-hms-dev:
